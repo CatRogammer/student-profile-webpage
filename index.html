@@ -3,48 +3,524 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>Student Profile Page</title>
+    <title>Computer Science | Explore the Future</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #090b14;
+            color: #f5f5fa;
+            font-family: 'Inter', sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            border-bottom: 1px solid #ffffff12;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 23px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #8b7bff;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #aaaabb;
+            margin-left: 25px;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #a99aff;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 70px 20px;
+            background:
+                radial-gradient(ellipse at 50% 40%, #4836a52a, transparent 60%);
+        }
+
+        .tag {
+            border: 1px solid #8b7bff55;
+            color: #a99aff;
+            border-radius: 30px;
+            padding: 9px 18px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(45px, 8vw, 85px);
+            line-height: 1.1;
+            letter-spacing: -3px;
+            max-width: 900px;
+        }
+
+        h1 span {
+            background: linear-gradient(90deg, #8b7bff, #46c8ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            color: #a0a0b4;
+            max-width: 600px;
+            line-height: 1.8;
+            margin: 25px auto 35px;
+            font-size: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #8372f5;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: #6a57e0;
+            transform: translateY(-3px);
+        }
+
+        .section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            color: #9292a7;
+            margin-bottom: 45px;
+            line-height: 1.7;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #131624;
+            border: 1px solid #ffffff12;
+            padding: 30px;
+            border-radius: 14px;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #8b7bff77;
+        }
+
+        .card .icon {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: #9999ad;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* WHY COMPUTER SCIENCE */
+
+        .why-section {
+            padding: 70px 8%;
+            background: #111421;
+            text-align: center;
+        }
+
+        .why-section p {
+            color: #9999ad;
+            max-width: 750px;
+            margin: 20px auto 0;
+            line-height: 1.9;
+            font-size: 15px;
+        }
+
+        /* CORE AREAS */
+
+        .code-section {
+            background: #111421;
+            border-top: 1px solid #ffffff10;
+            border-bottom: 1px solid #ffffff10;
+            padding: 80px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .code-text {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .code-box {
+            flex: 1;
+            min-width: 280px;
+            max-width: 480px;
+            background: #090b14;
+            border: 1px solid #ffffff18;
+            border-radius: 12px;
+            padding: 25px;
+            font-family: monospace;
+            line-height: 2;
+            color: #8de5b1;
+            box-shadow: 0 15px 50px #0005;
+        }
+
+        .purple {
+            color: #a99aff;
+        }
+
+        .blue {
+            color: #54caff;
+        }
+
+        .yellow {
+            color: #e8d48b;
+        }
+
+        /* EXTRA SUBJECTS */
+
+        .subjects-extra {
+            padding: 90px 8%;
+        }
+
+        .careers {
+            padding: 90px 8%;
+            text-align: center;
+        }
+
+        .career-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .career {
+            background: #171a2a;
+            border: 1px solid #ffffff15;
+            padding: 15px 25px;
+            border-radius: 30px;
+            color: #c4baff;
+            font-size: 14px;
+        }
+
+        /* START YOUR JOURNEY */
+
+        .journey {
+            text-align: center;
+            padding: 80px 20px;
+            background:
+                radial-gradient(ellipse at 50% 50%, #4836a52a, transparent 65%);
+        }
+
+        .journey p {
+            color: #9999ad;
+            max-width: 550px;
+            line-height: 1.8;
+            margin: 20px auto 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #ffffff12;
+            color: #77778d;
+            font-size: 13px;
+        }
+
+        @media(max-width: 600px) {
+            nav {
+                padding: 20px 5%;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 11px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            .section,
+            .subjects-extra,
+            .careers {
+                padding: 65px 6%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <div class="container">
-        <!-- Left Column -->
-        <aside class="left">
-            <section class="profile">
-                <header class="profile-header">
-                    <img src="img.jpeg" alt="Profile Picture">
-                    <h2>Agakhan Abasov</h2>
-                </header>
-                <article class="about">
-                    <p>
-                        Hi, my name is Agakhan! I am computer science student in University of Central Asia(UCA).
-                        Currently, I am sophomore student and taking Web and Internet Technologies Course.
-                        This is webpage that I am doing as an assignment. This course include topics as Networks,
-                        HTML, CSS, and JavaScript. By the end of this course we should be able create interactive 
-                        webpages. Also, this course is very good with Programming 3 course, since we are learning Java 
-                        and Design Patterns of webpages. These combinations of skills will make as closer to Full-Stack Developer.
-                    </p>
-                </article>
-            </section>
-        </aside>
 
-        <!-- Right Column -->
-        <main class="right">
-            <nav class="top">
-                <ul>
-                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                </ul>
-            </nav>
+    <nav>
+        <div class="logo">CS<span>.</span></div>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#subjects">Subjects</a>
+            <a href="#careers">Careers</a>
+        </div>
+    </nav>
 
-            <section class="bottom">
-                
-                <form class="contact-form">
-                    <h2>Contact Form</h2>
-                    <label for="name">Name</label>
-                    <input type="text" id="name" required>
-                    <label for="email">Email</label>
-                    <input type="email" id="email" required>
-                    <bu>
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="tag">✦ EXPLORE COMPUTER SCIENCE</div>
+
+        <h1>
+            Think Beyond.<br>
+            Build the <span>Future.</span>
+        </h1>
+
+        <p>
+            Computer Science is more than coding.
+            It's the art of solving problems, creating technology,
+            and turning imaginative ideas into reality.
+        </p>
+
+        <a href="#about" class="btn">Discover Computer Science ↗</a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+        <h2 class="section-title">What is Computer Science?</h2>
+
+        <p class="section-subtitle">
+            The science behind the digital world we live in.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>Programming</h3>
+                <p>
+                    Learn languages like Python, Java, and C++
+                    to create software and solve real-world problems.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🧠</div>
+                <h3>Algorithms</h3>
+                <p>
+                    Develop logical thinking and discover
+                    efficient ways to solve complex problems.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🌐</div>
+                <h3>Technology</h3>
+                <p>
+                    Understand networks, operating systems,
+                    databases, and how computers work.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- WHY COMPUTER SCIENCE -->
+    <section class="why-section">
+
+        <h2 class="section-title">Why Computer Science Matters</h2>
+
+        <p>
+            Technology is changing the way we live, learn, and work.
+            From smartphones and websites to artificial intelligence
+            and space exploration, computer science plays an important
+            role in shaping our world. It encourages creativity,
+            critical thinking, and innovation while helping us
+            solve challenges that matter.
+        </p>
+
+    </section>
+
+    <!-- SUBJECTS / CODE -->
+    <section class="code-section" id="subjects">
+
+        <div class="code-text">
+            <h2 class="section-title">Learn. Code. Create.</h2>
+
+            <p class="section-subtitle">
+                Every great innovation starts with an idea.
+                Computer Science gives you the knowledge
+                and tools to bring those ideas to life.
+                Explore new technologies, build useful projects,
+                and turn your imagination into something real.
+            </p>
+        </div>
+
+        <div class="code-box">
+            <span class="purple">class</span> Future:<br>
+            &nbsp;&nbsp;<span class="purple">def</span> __init__(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;self.skills = [<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">"Programming"</span>,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">"Creativity"</span>,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">"Problem Solving"</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;]<br><br>
+            &nbsp;&nbsp;<span class="purple">def</span> build_future(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">return</span> <span class="yellow">"Innovation 🚀"</span>
+        </div>
+
+    </section>
+
+    <!-- CORE AREAS -->
+    <section class="subjects-extra">
+
+        <h2 class="section-title">Explore Different Fields</h2>
+
+        <p class="section-subtitle">
+            Computer Science opens the door to many exciting areas of technology.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">🤖</div>
+                <h3>Artificial Intelligence</h3>
+                                <p>
+                    Explore how machines learn, analyze data,
+                    and solve problems through intelligent systems.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🔐</div>
+                <h3>Cybersecurity</h3>
+                <p>
+                    Protect computers, networks, and digital information
+                    from online threats and security risks.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎮</div>
+                <h3>Game Development</h3>
+                <p>
+                    Design interactive games by combining programming,
+                    creativity, graphics, and storytelling.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📊</div>
+                <h3>Data Science</h3>
+                <p>
+                    Discover useful insights from data using statistics,
+                    programming, and analytical thinking.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📱</div>
+                <h3>Web Development</h3>
+                <p>
+                    Build modern websites and applications
+                    that connect people around the world.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CAREERS -->
+    <section class="careers" id="careers">
+
+        <h2 class="section-title">Where Can It Take You?</h2>
+
+        <p class="section-subtitle">
+            Turn your passion for technology into an exciting career.
+        </p>
+
+        <div class="career-list">
+            <div class="career">Software Engineer</div>
+            <div class="career">AI Developer</div>
+            <div class="career">Web Designer</div>
+            <div class="career">Data Scientist</div>
+            <div class="career">Cybersecurity Analyst</div>
+            <div class="career">Game Developer</div>
+            <div class="career">App Developer</div>
+        </div>
+
+    </section>
+
+    <!-- JOURNEY -->
+    <section class="journey">
+
+        <h2 class="section-title">Your Future Starts Here.</h2>
+
+        <p>
+            Don't just imagine the future. Learn the skills,
+            explore new possibilities, and become someone
+            who creates it. Your journey into Computer Science
+            begins with a single step.
+        </p>
+
+        <a href="#home" class="btn">Start Exploring ↑</a>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Computer Science | Explore. Learn. Innovate.</p>
+        <p>Designed for the creators of tomorrow 🚀</p>
+    </footer>
+
+</body>
+</html>
